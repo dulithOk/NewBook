@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Additional styles for card icons */
+        .card-icons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .card-type {
+            width: 50px;
+            height: 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card-type:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Secure Payment</h2>
+        <div class="payment-form">
+            <!-- Card type selection with icons -->
+            <div class="card-icons">
+                <img class="card-type" src="/image/visa.jpg" alt="Visa" title="Visa" onclick="selectCardType('Visa')">
+                <img class="card-type" src="/image/master.png" alt="Mastercard" title="Mastercard"
+                    onclick="selectCardType('Mastercard')">
+                <!-- Add more card type icons as needed -->
+            </div>
+
+            <!-- Payment form -->
+            <form action="/payment_process" method="post">
+                <div class="form-group">
+                    <label for="card_number">Card Number</label>
+                    <input type="text" id="card_number" name="card_number" placeholder="Enter card number" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiry">Expiry Date</label>
+                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Cardholder Name</label>
+                    <input type="text" id="name" name="name" placeholder="Cardholder name" required>
+                </div>
+                <div class="form-group" style="text-align: center;">
+                    <a class="tn btn-secondary btn-sm btn-no-underline" th:each="b :${book}" th:href="@{/myList/{id}(id=${b.id})}" style="background-color: blue; font-size: 26px; color: white; text-align: center;">Submit</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function selectCardType(cardType) {
+            alert('Selected card type: ' + cardType);
+            // You can perform actions here based on the selected card type if needed
+        }
+    </script>
+</body>
+
+</html>

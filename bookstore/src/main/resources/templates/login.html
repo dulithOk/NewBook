@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link th:href="@{/css/log.css}" rel="stylesheet" > 
+</head>
+<body>
+  <div class="login-container">
+    <form th:action="@{/login}" method="post">
+      <h2>Login</h2>
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="userName" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a th:href=@{/registration}>Register here</a></p>
+  </div>
+</body>
+</html>

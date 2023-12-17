@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Book Store</title>
+    
+    <style>
+        /* CSS to position the map */
+        #map-container {
+            position: absolute;
+            top: 70px; /* Adjust the top position as needed */
+            left: 0px; /* Adjust the left position as needed */
+            width: 250px; /* Adjust the width as needed */
+            z-index: 1; /* Ensure the map appears above other elements */
+        }
+
+        /* Additional styles for the content */
+        .container {
+            margin-top: 50px; /* Add margin to the top of the main content */
+            margin-bottom: 50px; /* Add margin to the bottom of the main content */
+            
+        }
+        
+        /* Style for digital clock */
+        #digital-clock {
+            position: absolute;
+            top: 60px; /* Adjust the top position as needed */
+            right: 0px; /* Adjust the right position as needed */
+            font-size: 20px;
+            font-weight: bold; /* Make the font bold */
+            color: red; /* Change font color to red */
+        }
+        
+        
+    </style>
+  
+  </head>
+  <body>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand  text-white"  href="#">Book Store</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link " href="#" style="color: white; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="book_list" style="color: white; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">Available Book</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="my_book" style="color: white; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">My Book</a>
+      </li>
+      
+      <li>
+      <a class="nav-link" href="book_register" style="color: white; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">New Book Register</a>
+      </li>
+      
+    </ul>
+    <div>
+                        
+                        <a class="nav-link" href="login" style="color: white; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">Login</a>
+    
+    </div>
+    
+  </div>
+</nav>
+
+
+
+<div class="container text-center my-5">
+
+    <h1>Welcome to the new book store</h1><br>
+    <h6>
+    
+    Our shelves are brimming with tales of adventure, romance, mystery, and so much more. Whether you're seeking the thrill of a chase, the comfort of a familiar character, or the stimulation of new ideas, we have something for every reader.
+
+Step inside our inviting space and let the magic of books transport you to far-off lands, introduce you to unforgettable characters, and expand your horizons. Our friendly staff is always ready to assist you in finding the perfect book to match your mood and interests.
+
+So, come and embark on a literary journey with us. Let the written word ignite your imagination and enrich your life. We look forward to welcoming you to [Bookstore Name], your gateway to a world of endless possibilities.
+    
+    </h6>
+    <img src="/image/book.png" /><br>
+    
+    
+
+
+</div>
+
+<div id="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15867.605270720762!2d80.47964163946702!3d6.143955686070823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae142d0466ca5a1%3A0x5ce8403af649ba9b!2sWelihena!5e0!3m2!1sen!2slk!4v1700921737235!5m2!1sen!2slk" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    
+    <!-- Digital clock -->
+<div id="digital-clock"></div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+    // Function to update the digital clock
+    function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        // Add leading zeros to single digit numbers
+        hours = (hours < 10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+
+        // Format the time
+        var timeString = hours + ":" + minutes + ":" + seconds;
+
+        // Update the digital clock
+        document.getElementById("digital-clock").innerText = timeString;
+
+        // Call this function again after 1 second
+        setTimeout(updateClock, 1000);
+    }
+
+    // Call the function for the first time to start the clock
+    updateClock();
+</script>
+
+<!-- Footer part. -->
+<div class="contain my-5">
+  <!-- Footer -->
+  <footer class="text-center text-white" style="background-color: #000000">
+    <!-- Grid container -->
+    <div class="container">
+      <!-- Section: Links -->
+      <section class="mt-5">
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5">
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">About us</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">Products</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">Awards</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">Help</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="contact" class="text-white">Contact</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row-->
+      </section>
+      <!-- Section: Links -->
+
+      <hr class="my-5" />
+
+      <!-- Section: Text -->
+      <section class="mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+              distinctio earum repellat quaerat voluptatibus placeat nam,
+              commodi optio pariatur est quia magnam eum harum corrupti
+              dicta, aliquam sequi voluptate quas.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Text -->
+
+      <!-- Section: Social -->
+      <section class="text-center mb-5">
+        <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a>
+      </section>
+      <!-- Section: Social -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/"
+         >MDBootstrap.com</a
+        >
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</div>
+<!-- End of .container -->
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
