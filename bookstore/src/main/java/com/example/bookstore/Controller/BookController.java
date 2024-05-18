@@ -72,14 +72,10 @@ public class BookController {
 	}
 	
 	@PostMapping("/save")
-	public String addBook(@ModelAttribute Book book) {
-		
-		bookService.save(book);
-		return "redirect:/book_list";
-		
-		
-	}
-	
+    public String addBook(@RequestBody Book book) {
+        bookService.save(book);
+       return "redirect:/book_list";
+    }
 	@GetMapping("/my_book")
 	public ModelAndView myBook() {
 		
